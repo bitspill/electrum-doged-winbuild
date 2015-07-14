@@ -1,0 +1,7 @@
+releases/*
+source/*.tar.gz
+source/electrum-doged-*
+source/Electrum-doged-*
+.present
+repo
+repo/*

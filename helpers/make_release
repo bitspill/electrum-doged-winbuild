@@ -1,0 +1,23 @@
+#!/bin/bash -x
+VERSION="$1"
+echo "Making packages"
+mkdir -pv /root/repo
+git clone https://github.com/mazaclub/electrum-doged /root/repo
+cd /root/repo
+git checkout v$VERSION
+cp -v  /root/make_packages /root/repo/make_packages
+cd /root/repo
+mkdir ./packages
+./make_packages
+## rm just isn't that expensive to run without fancy bash expansions
+
+rm -rf /opt/wine-electrum/drive_c/electrum-doged/Electrum-doged-$VERSION.*
+rm -rf /opt/wine-electrum/drive_c/electrum-doged/Electrum-doged-$VERSION/
+rm -rf /opt/wine-electrum/drive_c/electrum-doged/electrum-doged-$VERSION/
+
+cp -v /root/repo/dist/Electrum-doged-$VERSION.zip /opt/wine-electrum/drive_c/electrum-doged
+cd /opt/wine-electrum/drive_c/electrum-doged
+unzip Electrum-doged-$VERSION.zip
+cp -a /root/ltc_scrypt.pyd /opt/wine-electrum/drive_c/electrum-doged/Electrum-doged-$VERSION/lib/chains
+
+/usr/bin/build-binary $VERSION
