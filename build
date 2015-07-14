@@ -2,7 +2,7 @@
 
 function buildBinary(){
   mkdir $(pwd)/releases
-  $DOCKERBIN run --rm -it --privileged -e MKPKG_VER=${VERSION} -v $(pwd)/repo:/root/repo  -v $(pwd)/source:/opt/wine-electrum/drive_c/electrum-doged/ mazaclub/electrum-doged-winbuild /root/make_release $VERSION
+  $DOCKERBIN run --rm -it --privileged -e MKPKG_VER=${VERSION} -v $(pwd)/repo:/root/repo  -v $(pwd)/source:/opt/wine-electrum/drive_c/electrum-doged/ bitspill/electrum-doged-winbuild /root/make_release $VERSION
   if [[ $? = 0 ]]; then
     echo "Build successful."
   else
@@ -30,7 +30,7 @@ function buildBinary(){
 
 function buildImage(){
   echo "Building image"
-  $DOCKERBIN build -t mazaclub/electrum-doged-winbuild .
+  $DOCKERBIN build -t bitspill/electrum-doged-winbuild .
 }
 function buildLtcScrypt() {
 ## this will be integrated into the main build in a later release
@@ -49,7 +49,7 @@ function prepareFile(){
   if [ -e "$TARGETPATH" ]; then
     echo "Version tar already downloaded."
   else
-   wget https://github.com/mazaclub/electrum-doged/archive/v${VERSION}.zip -O $TARGETPATH
+   wget https://github.com/bitspill/electrum-doged/archive/v${VERSION}.zip -O $TARGETPATH
   fi
 
   if [ -d "$TARGETFOLDER" ]; then

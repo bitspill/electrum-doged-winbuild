@@ -66,8 +66,8 @@ package/build system in a later release.
 
 
 This image is also available as an automated build on dockerhub
-<code>git clone https://github.com/mazaclub/electrum-doged-winbuild && cd electrum-doged-winbuild
-docker pull mazaclub/electrum-doged-winbuild
+<code>git clone https://github.com/bitspill/electrum-doged-winbuild && cd electrum-doged-winbuild
+docker pull bitspill/electrum-doged-winbuild
 ./build 0.2
 </code>
 Current image size is approximately 2.1GB 

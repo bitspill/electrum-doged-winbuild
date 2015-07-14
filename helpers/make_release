@@ -2,7 +2,7 @@
 VERSION="$1"
 echo "Making packages"
 mkdir -pv /root/repo
-git clone https://github.com/mazaclub/electrum-doged /root/repo
+git clone https://github.com/bitspill/electrum-doged /root/repo
 cd /root/repo
 git checkout v$VERSION
 cp -v  /root/make_packages /root/repo/make_packages
