@@ -49,7 +49,7 @@ function prepareFile(){
   if [ -e "$TARGETPATH" ]; then
     echo "Version tar already downloaded."
   else
-   wget https://github.com/bitspill/electrum-doged/archive/v${VERSION}.zip -O $TARGETPATH
+   wget https://github.com/bitspill/electrum-doged/archive/${VERSION}.zip -O $TARGETPATH
   fi
 
   if [ -d "$TARGETFOLDER" ]; then
