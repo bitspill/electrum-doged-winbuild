@@ -14,7 +14,7 @@ RUN apt-get update -y \
      && apt-get install -y software-properties-common && add-apt-repository -y ppa:ubuntu-wine/ppa \
      && dpkg --add-architecture i386 \
      && apt-get update -y \
-     && apt-get install -y curl  wine1.7 xvfb wget \
+     && apt-get install -y curl  wine1.6 xvfb wget \
      && apt-get install -y winbind \
      && apt-get install -y python-pip pyqt4-dev-tools \
      && apt-get purge -y python-software-properties \
